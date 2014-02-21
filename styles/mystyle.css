@@ -1,4 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic|Yanone+Kaffeesatz:400,700);
+
+small {
+    font-size: 70%;
+}
+
 pre {
     margin-left: 0;
     margin-right: 0;
@@ -30,6 +35,8 @@ h1, h2, h3, h4, h5, h6 {
 div.slide h1 {
     font-size: 120px;
     text-align: center;
+    margin: 20px auto;
+    padding: 0;
 }
 
 body {

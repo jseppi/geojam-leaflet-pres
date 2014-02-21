@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 
 gulp.task('default',
     function() {
-        gulp.src('./presentation.md')
+        gulp.src('./index.md')
             .pipe(pandoc({
                 from: 'markdown',
                 to: 'slidy',
@@ -23,7 +23,7 @@ gulp.task('default',
 );
 
 workingFiles = [
-    './presentation.md',
+    './index.md',
     './scripts/**/*',
     './styles/**/*'
 ];
