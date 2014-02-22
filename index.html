@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="James Seppi, TNRIS" />
+  <title>Introduction to LeafletJS</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cccccc; background-color: #303030; }
+code > span.kw { color: #f0dfaf; }
+code > span.dt { color: #dfdfbf; }
+code > span.dv { color: #dcdccc; }
+code > span.bn { color: #dca3a3; }
+code > span.fl { color: #c0bed1; }
+code > span.ch { color: #dca3a3; }
+code > span.st { color: #cc9393; }
+code > span.co { color: #7f9f7f; }
+code > span.ot { color: #efef8f; }
+code > span.al { color: #ffcfaf; }
+code > span.fu { color: #efef8f; }
+code > span.er { color: #c3bf9f; }
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+  <link rel="stylesheet" href="styles/mystyle.css" />
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Introduction to LeafletJS</h1>
+  <p class="author">
+James Seppi, <a href="http://www.tnris.org">TNRIS</a>
+  </p>
+  <p class="date">Open Austin Geo Jam - February 22, 2014</p>
+</div>
+<div id="what-is-leaflet" class="slide section level1">
+<h1>What is Leaflet?</h1>
+<p>Motivation for use, features, etc</p>
+</div>
+<div id="lets-go" class="slide section level1">
+<h1>Let's Go!</h1>
+<p>First, include the Leaflet CSS and JavaScript in the <code>&lt;head&gt;</code> of your page:</p>
+<div class="incremental">
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span>
+<span class="ot">    href=</span><span class="st">&quot;//cdn.leafletjs.com/leaflet-0.7.2/leaflet.css&quot;</span> <span class="kw">/&gt;</span>
+
+<span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;//cdn.leafletjs.com/leaflet-0.7.2/leaflet.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></code></pre>
+</div>
+</div>
+<div id="make-a-map" class="slide section level1">
+<h1>Make a Map</h1>
+<div class="incremental">
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> map = <span class="ot">L</span>.<span class="fu">map</span>(<span class="st">&#39;map&#39;</span>, {
+    <span class="dt">center</span>: [<span class="fl">30.25</span>, -<span class="fl">97.75</span>], <span class="co">//Austin!</span>
+    <span class="dt">zoom</span>: <span class="dv">13</span>
+});</code></pre>
+</div>
+<div class="incremental">
+<p><code>L.map</code> takes an id of a <code>&lt;div&gt;</code>, so have that in your html:</p>
+</div>
+<div class="incremental">
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;map&quot;</span><span class="ot"> class=</span><span class="st">&quot;map&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></code></pre>
+</div>
+<div class="incremental">
+<p>And this <code>&lt;div&gt;</code> must have a size, so specify it in your css:</p>
+</div>
+<div class="incremental">
+<pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.map</span> <span class="kw">{</span> <span class="kw">width:</span> <span class="dt">800px</span><span class="kw">;</span> <span class="kw">height:</span> <span class="dt">400px</span><span class="kw">;</span> <span class="kw">}</span></code></pre>
+</div>
+</div>
+<div id="tada" class="slide section level1">
+<h1>Tada!</h1>
+<div id="map1" class="map">
+
+</div>
+<div class="incremental">
+<p>Wait, where is the map?</p>
+</div>
+</div>
+<div id="add-a-tile-layer" class="slide section level1">
+<h1>Add a Tile Layer</h1>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="fu">tileLayer</span>(
+    <span class="st">&#39;http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg&#39;</span>
+).<span class="fu">addTo</span>(map);</code></pre>
+<div class="incremental">
+<div id="map2" class="map">
+
+</div>
+</div>
+<div class="incremental">
+<p>Yay! We have a fully interactive map!</p>
+<p><a href="http://developer.mapquest.com/web/products/open/map">MapQuest Open Street Map</a></p>
+</div>
+</div>
+<div id="try-some-other-tile-layers" class="slide section level1">
+<h1>Try Some Other Tile Layers</h1>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="fu">tileLayer</span>(
+    <span class="st">&#39;http://otile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg&#39;</span>
+).<span class="fu">addTo</span>(map);</code></pre>
+<div id="map3" class="map">
+
+</div>
+<p><a href="http://developer.mapquest.com/web/products/open/map">MapQuest Open Aerial</a></p>
+</div>
+<div id="try-some-other-tile-layers-1" class="slide section level1">
+<h1>Try Some Other Tile Layers</h1>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="fu">tileLayer</span>(
+    <span class="st">&#39;http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#39;</span>
+).<span class="fu">addTo</span>(map);</code></pre>
+<div id="map4" class="map">
+
+</div>
+<p><a href="http://www.openstreetmap.org/">Open Street Map</a></p>
+</div>
+<div id="try-some-other-tile-layers-2" class="slide section level1">
+<h1>Try Some Other Tile Layers</h1>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="fu">tileLayer</span>(
+    <span class="st">&#39;https://{s}.tiles.mapbox.com/v3/eleanor.mnyzxgvi/{z}/{x}/{y}.png&#39;</span>
+).<span class="fu">addTo</span>(map);</code></pre>
+<div id="map5" class="map">
+
+</div>
+<p><a href="https://www.mapbox.com/blog/interactive-woodcut-map/">Woodcut from MapBox</a></p>
+</div>
+<div id="add-markers" class="slide section level1">
+<h1>Add Markers</h1>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="fu">marker</span>([<span class="fl">30.265108</span>, -<span class="fl">97.746683</span>])
+    .<span class="fu">bindPopup</span>(<span class="st">&quot;Austin City Hall&quot;</span>)
+    .<span class="fu">addTo</span>(map);
+
+<span class="ot">L</span>.<span class="fu">marker</span>([<span class="fl">30.309441</span>, -<span class="fl">97.666777</span>])
+    .<span class="fu">bindPopup</span>(<span class="st">&quot;University Hills Library&quot;</span>)
+    .<span class="fu">addTo</span>(map);</code></pre>
+<div id="map6" class="map">
+
+</div>
+</div>
+<div id="bind-events" class="slide section level1">
+<h1>Bind Events</h1>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="fu">marker</span>([<span class="fl">30.265108</span>, -<span class="fl">97.746683</span>])
+    .<span class="fu">on</span>(<span class="st">&#39;click&#39;</span>, <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&quot;Austin City Hall&quot;</span>); })
+    .<span class="fu">addTo</span>(map);
+
+<span class="ot">L</span>.<span class="fu">marker</span>([<span class="fl">30.309441</span>, -<span class="fl">97.666777</span>])
+    .<span class="fu">on</span>(<span class="st">&#39;click&#39;</span>, <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&quot;University Hills Library&quot;</span>); })
+    .<span class="fu">addTo</span>(map);</code></pre>
+<div id="map7" class="map">
+
+</div>
+</div>
+<div id="add-vectors" class="slide section level1">
+<h1>Add Vectors</h1>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="fu">polygon</span>([
+    [<span class="fl">30.19</span>, -<span class="fl">97.79</span>], [<span class="fl">30.38</span>, -<span class="fl">97.79</span>],
+    [<span class="fl">30.38</span>, -<span class="fl">97.68</span>], [<span class="fl">30.19</span>, -<span class="fl">97.68</span>]
+]).<span class="fu">bindPopup</span>(<span class="st">&quot;I&#39;m a Polygon!&quot;</span>).<span class="fu">addTo</span>(map);
+
+<span class="ot">L</span>.<span class="fu">circle</span>([<span class="fl">30.26</span>, -<span class="fl">97.62</span>], <span class="dv">2000</span>) <span class="co">//radius in meters</span>
+    .<span class="fu">bindPopup</span>(<span class="st">&quot;I&#39;m a Circle!&quot;</span>).<span class="fu">addTo</span>(map);</code></pre>
+<div id="map8" class="map">
+
+</div>
+<p>See also <code>L.polyline()</code> and <code>L.rectangle()</code></p>
+</div>
+<div id="add-geojson" class="slide section level1">
+<h1>Add GeoJSON</h1>
+<p>TODO</p>
+<div id="map9" class="map">
+
+</div>
+</div>
+<div id="add-cooler-geojson" class="slide section level1">
+<h1>Add Cooler GeoJSON</h1>
+<p>TODO</p>
+<div id="map10" class="map">
+
+</div>
+</div>
+<div id="so-many-plugins" class="slide section level1">
+<h1>So Many Plugins!</h1>
+<p>TODO</p>
+<div id="map11" class="map">
+
+</div>
+</div>
+<div id="drawing-plugin" class="slide section level1">
+<h1>Drawing Plugin</h1>
+<p>TODO</p>
+<div id="map12" class="map">
+
+</div>
+</div>
+<div id="makimarkers-plugin" class="slide section level1">
+<h1>MakiMarkers Plugin</h1>
+<p>My personal favorite...</p>
+<p>Uses MapBox Static Marker API</p>
+<div id="map13" class="map">
+
+</div>
+<p>TODO</p>
+</div>
+<div id="leafletjs-resources" class="slide section level1">
+<h1>LeafletJS Resources</h1>
+<ul>
+<li><a href="http://www.leafletjs.com">leafletjs.com</a> - Tutorials, API, Plugins</li>
+<li><a href="http://geojson.io">geojson.io</a> - View, edit, and export GeoJSON</li>
+<li>MapBox Documentation - More LeafletJS tutorials, Plugins CDN, etc.</li>
+</ul>
+</div>
+<div id="thanks" class="slide section level1">
+<h1>Thanks!</h1>
+<p><a href="http://www.tnris.org">TNRIS</a></p>
+<p><script type="text/javascript">
+<!--
+h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#106;&#x61;&#x6d;&#x65;&#x73;&#46;&#x73;&#x65;&#112;&#112;&#x69;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#106;&#x61;&#x6d;&#x65;&#x73;&#46;&#x73;&#x65;&#112;&#112;&#x69;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript></p>
+<p><a href="http://twitter.com/hydrologee">@hydrologee</a></p>
+<p><a href="http://github.com/jseppi">github.com/jseppi</a></p>
+<hr/>
+
+<p><small> Presentation source available at <a href="https://github.com/jseppi/geojam-leaflet-pres">github.com/jseppi/geojam-leaflet-pres</a></p>
+<p>Generated with <a href="http://johnmacfarlane.net/pandoc/">pandoc</a> </small></p>
+</div>
+<script src="scripts/maps.js"></script>
+</body>
+</html>
