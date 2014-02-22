@@ -74,10 +74,9 @@ code > span.er { color: #c3bf9f; }
 <h1>Let's Go!</h1>
 <p>First, include the Leaflet CSS and JavaScript in the <code>&lt;head&gt;</code> of your page:</p>
 <div class="incremental">
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span>
-<span class="ot">    href=</span><span class="st">&quot;//cdn.leafletjs.com/leaflet-0.7.2/leaflet.css&quot;</span> <span class="kw">/&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;styles/leaflet.css&quot;</span> <span class="kw">/&gt;</span>
 
-<span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;//cdn.leafletjs.com/leaflet-0.7.2/leaflet.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></code></pre>
+<span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;scripts/leaflet.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></code></pre>
 </div>
 </div>
 <div id="then-make-a-map" class="slide section level1">
@@ -261,7 +260,21 @@ code > span.er { color: #c3bf9f; }
 </div>
 <div id="drawing-plugin" class="slide section level1">
 <h1>Drawing Plugin</h1>
-<p>TODO</p>
+<p>First include the plugin JavaScript and CSS:</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&#39;scripts/leaflet.draw.js&#39;</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="kw">&lt;link</span><span class="ot"> href=</span><span class="st">&#39;styles/leaflet.draw.css&#39;</span><span class="ot"> rel=</span><span class="st">&#39;stylesheet&#39;</span> <span class="kw">/&gt;</span></code></pre>
+<p>Add the draw control to your map:</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> drawControl = <span class="kw">new</span> <span class="ot">L</span>.<span class="ot">Control</span>.<span class="fu">Draw</span>();
+<span class="ot">map</span>.<span class="fu">addControl</span>(drawControl);
+
+<span class="ot">map</span>.<span class="fu">on</span>(<span class="st">&#39;draw:created&#39;</span>, <span class="kw">function</span> (e) {
+    <span class="kw">var</span> layer = <span class="ot">e</span>.<span class="fu">layer</span>;
+    <span class="co">//Add to map, and save to backend, etc</span>
+    <span class="ot">map</span>.<span class="fu">addLayer</span>(layer);
+});</code></pre>
+</div>
+<div id="drawing-plugin-1" class="slide section level1">
+<h1>Drawing Plugin</h1>
 <div id="map12" class="map">
 
 </div>
@@ -270,8 +283,29 @@ code > span.er { color: #c3bf9f; }
 <h1>MakiMarkers Plugin</h1>
 <p>My personal favorite... <a href="https://github.com/jseppi/Leaflet.MakiMarkers">Leaflet.MakiMarkers</a></p>
 <p>Uses MapBox <a href="https://www.mapbox.com/developers/api/#Stand-alone.markers">Static Marker API</a></p>
-<p>TODO</p>
+<div class="incremental">
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&#39;scripts/leaflet.draw.js&#39;</span><span class="kw">&gt;&lt;/script&gt;</span></code></pre>
+</div>
+<div class="incremental">
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> beerIcon = <span class="ot">L</span>.<span class="ot">MakiMarkers</span>.<span class="fu">icon</span>({
+    <span class="dt">icon</span>: <span class="st">&quot;beer&quot;</span>,
+    <span class="dt">color</span>: <span class="st">&quot;#12a&quot;</span>,
+    <span class="dt">size</span>: <span class="st">&quot;l&quot;</span>
+});
+
+<span class="ot">L</span>.<span class="fu">marker</span>([<span class="fl">30.31096</span>, -<span class="fl">97.74277</span>], {<span class="dt">icon</span>: beerIcon})
+    .<span class="fu">addTo</span>(map)</code></pre>
+</div>
+</div>
+<div id="makimarkers-plugin-1" class="slide section level1">
+<h1>MakiMarkers Plugin</h1>
 <div id="map13" class="map">
+
+</div>
+</div>
+<div id="makimarkers-plugin-2" class="slide section level1">
+<h1>MakiMarkers Plugin</h1>
+<div id="map14" class="map">
 
 </div>
 </div>

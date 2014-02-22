@@ -38,10 +38,9 @@ First, include the Leaflet CSS and JavaScript in the `<head>` of your page:
 . . .
 
 ```html
-<link rel="stylesheet"
-    href="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+<link rel="stylesheet" href="styles/leaflet.css" />
 
-<script src="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+<script src="scripts/leaflet.js"></script>
 ```
 
 # Then, Make a Map
@@ -248,7 +247,27 @@ Created using QGIS and [Ogre](http://ogre.adc4gis.com/)
 
 # Drawing Plugin
 
-TODO
+First include the plugin JavaScript and CSS:
+
+```html
+<script src='scripts/leaflet.draw.js'></script>
+<link href='styles/leaflet.draw.css' rel='stylesheet' />
+```
+
+Add the draw control to your map:
+
+```javascript
+var drawControl = new L.Control.Draw();
+map.addControl(drawControl);
+
+map.on('draw:created', function (e) {
+    var layer = e.layer;
+    //Add to map, and save to backend, etc
+    map.addLayer(layer);
+});
+```
+
+# Drawing Plugin
 
 <div id="map12" class="map"></div>
 
@@ -258,9 +277,32 @@ My personal favorite... [Leaflet.MakiMarkers](https://github.com/jseppi/Leaflet.
 
 Uses MapBox [Static Marker API](https://www.mapbox.com/developers/api/#Stand-alone.markers)
 
-TODO
+. . .
+
+```html
+<script src='scripts/leaflet.draw.js'></script>
+```
+. . .
+
+```javascript
+var beerIcon = L.MakiMarkers.icon({
+    icon: "beer",
+    color: "#12a",
+    size: "l"
+});
+
+L.marker([30.31096, -97.74277], {icon: beerIcon})
+    .addTo(map)
+
+```
+
+# MakiMarkers Plugin
 
 <div id="map13" class="map"></div>
+
+# MakiMarkers Plugin
+
+<div id="map14" class="map"></div>
 
 
 # LeafletJS Resources

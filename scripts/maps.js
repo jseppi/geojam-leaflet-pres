@@ -133,5 +133,60 @@
         L.geoJson(data).addTo(map11);
     });
     
+    //---------------------------------------
 
+    var map12 = makeSimpleMap("map12");
+    var drawControl = new L.Control.Draw();
+    map12.addControl(drawControl);
+
+    map12.on('draw:created', function (e) {
+        var type = e.layerType,
+            layer = e.layer;
+
+        map12.addLayer(layer);
+    });
+
+    //---------------------------------------
+
+    var map13 = makeSimpleMap("map13");
+    var beerIcon = L.MakiMarkers.icon({
+        icon: "beer",
+        color: "#12a",
+        size: "l"
+    });
+
+    L.marker([30.31096, -97.74277], {
+        icon: beerIcon
+    }).addTo(map13)
+
+    //---------------------------------------
+
+    var map14 = makeSimpleMap("map14");
+    L.marker([30.31096, -97.74277], {
+        icon: beerIcon
+    }).addTo(map14)
+    .bindPopup("<b>Large Beer!</b>");
+
+    var rocketIcon = L.MakiMarkers.icon({
+        icon: "rocket",
+        color: "#b0b",
+        size: "m"
+    });
+
+    L.marker([30.287, -97.72], {
+        icon: rocketIcon
+    }).addTo(map14)
+    .bindPopup("<b>Medium Rocket!</b>");
+
+
+    var warehouseIcon = L.MakiMarkers.icon({
+        icon: "warehouse",
+        color: "#0a0",
+        size: "s",
+        iconSize: [20, 50]
+    });
+
+    L.marker([30.26672, -97.74541], {
+        icon: warehouseIcon
+    }).addTo(map14).bindPopup("<b>Small Warehouse!</b>");
 })();
