@@ -17,6 +17,7 @@ pre {
 pre code {
     display:block;
     padding: 10px;
+    text-align: left;
 }
 
 p code {
@@ -42,7 +43,7 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-.slide p { text-align: center;}
+.slide { text-align: center;}
 
 .map {
     width: 90%;

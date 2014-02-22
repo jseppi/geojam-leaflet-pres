@@ -1,10 +1,21 @@
 % Introduction to LeafletJS
-% James Seppi, [TNRIS](http://www.tnris.org)
-% Open Austin Geo Jam - February 22, 2014
 
-# What is Leaflet?
+# Introduction to LeafletJS
 
-Motivation for use, features, etc
+James Seppi, [TNRIS](http://www.tnris.org)
+
+Open Austin Geo Jam - February 22, 2014
+
+![](images/leaflet_logo.png)\
+
+\
+
+![](images/Open_Austin_Banner_400x80.png)\
+
+
+# What is this Leaflet thing?
+
+* Open source web mapping library
 
 
 # Let's Go!
@@ -20,7 +31,7 @@ First, include the Leaflet CSS and JavaScript in the `<head>` of your page:
 <script src="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
 ```
 
-# Make a Map
+# Then, Make a Map
 
 . . .
 
@@ -59,7 +70,7 @@ And this `<div>` must have a size, so specify it in your css:
 
 Wait, where is the map?
 
-# Add a Tile Layer
+# Add a Base Tile Layer
 
 ```javascript
 L.tileLayer(
@@ -114,6 +125,8 @@ L.tileLayer(
 
 # Add Markers
 
+. . .
+
 ```javascript
 L.marker([30.265108, -97.746683])
     .bindPopup("Austin City Hall")
@@ -123,9 +136,14 @@ L.marker([30.309441, -97.666777])
     .bindPopup("University Hills Library")
     .addTo(map);
 ```
+
+. . .
+
 <div id="map6" class="map"></div>
 
 # Bind Events
+
+. . .
 
 ```javascript
 L.marker([30.265108, -97.746683])
@@ -137,9 +155,13 @@ L.marker([30.309441, -97.666777])
     .addTo(map);
 ```
 
+. . .
+
 <div id="map7" class="map"></div>
 
 # Add Vectors
+
+. . .
 
 ```javascript
 L.polygon([
@@ -151,7 +173,11 @@ L.circle([30.26, -97.62], 2000) //radius in meters
     .bindPopup("I'm a Circle!").addTo(map);
 ```
 
+. . .
+
 <div id="map8" class="map"></div>
+
+. . .
 
 See also `L.polyline()` and `L.rectangle()`
 
@@ -166,6 +192,8 @@ TODO
 TODO
 
 <div id="map10" class="map"></div>
+
+Created using QGIS and [Ogre](http://ogre.adc4gis.com/)
 
 # So Many Plugins!
 

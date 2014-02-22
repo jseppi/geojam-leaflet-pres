@@ -12,6 +12,17 @@
     w3c_slidy.sizes =  new Array("16pt", "18pt", "20pt", "22pt", "24pt", "26pt",
                     "28pt", "30pt", "32pt", "34pt", "36pt", "38pt");
 
+
+    var makeSimpleMap = function(divId) {
+        var newMap = L.map(divId, {
+            center: [30.25, -97.75],
+            zoom: 10
+        });
+        L.tileLayer("http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg")
+            .addTo(newMap);
+        return newMap;
+    };
+
     var map1 = L.map("map1", {
         center: [30.25, -97.75],
         zoom: 13
@@ -44,7 +55,7 @@
         zoom: 10
     });
 
-    L.tileLayer("http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg")
+    L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
         .addTo(map4);
 
     //---------------------------------------
@@ -59,11 +70,7 @@
 
     //---------------------------------------
 
-    var map6 = L.map("map6", {
-        center: [30.25, -97.75],
-        zoom: 10
-    });
-    L.tileLayer("http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg").addTo(map6);
+    var map6 = makeSimpleMap("map6");
     L.marker([30.265108, -97.746683])
         .bindPopup("Austin City Hall")
         .addTo(map6);
@@ -73,11 +80,7 @@
 
     //---------------------------------------
 
-    var map7 = L.map("map7", {
-        center: [30.25, -97.75],
-        zoom: 10
-    });
-    L.tileLayer("http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg").addTo(map7);
+    var map7 = makeSimpleMap("map7");
     L.marker([30.265108, -97.746683])
         .on("click", function() { alert("Austin City Hall"); })
         .addTo(map7);
@@ -87,11 +90,7 @@
 
     //---------------------------------------
 
-    var map8 = L.map("map8", {
-        center: [30.25, -97.75],
-        zoom: 10
-    });
-    L.tileLayer("http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg").addTo(map8);
+    var map8 = makeSimpleMap("map8");
     L.polygon([
         [30.19, -97.79],
         [30.38, -97.79],

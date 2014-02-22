@@ -6,7 +6,6 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="James Seppi, TNRIS" />
   <title>Introduction to LeafletJS</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -41,13 +40,20 @@ code > span.er { color: #c3bf9f; }
 <div class="slide titlepage">
   <h1 class="title">Introduction to LeafletJS</h1>
   <p class="author">
-James Seppi, <a href="http://www.tnris.org">TNRIS</a>
+
   </p>
-  <p class="date">Open Austin Geo Jam - February 22, 2014</p>
 </div>
-<div id="what-is-leaflet" class="slide section level1">
-<h1>What is Leaflet?</h1>
-<p>Motivation for use, features, etc</p>
+<div id="introduction-to-leafletjs" class="slide section level1">
+<h1>Introduction to LeafletJS</h1>
+<p>James Seppi, <a href="http://www.tnris.org">TNRIS</a></p>
+<p>Open Austin Geo Jam - February 22, 2014</p>
+<p><img src="images/leaflet_logo.png" /><br /><br /> <img src="images/Open_Austin_Banner_400x80.png" /><br /></p>
+</div>
+<div id="what-is-this-leaflet-thing" class="slide section level1">
+<h1>What is this Leaflet thing?</h1>
+<ul>
+<li>Open source web mapping library</li>
+</ul>
 </div>
 <div id="lets-go" class="slide section level1">
 <h1>Let's Go!</h1>
@@ -59,8 +65,8 @@ James Seppi, <a href="http://www.tnris.org">TNRIS</a>
 <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;//cdn.leafletjs.com/leaflet-0.7.2/leaflet.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></code></pre>
 </div>
 </div>
-<div id="make-a-map" class="slide section level1">
-<h1>Make a Map</h1>
+<div id="then-make-a-map" class="slide section level1">
+<h1>Then, Make a Map</h1>
 <div class="incremental">
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> map = <span class="ot">L</span>.<span class="fu">map</span>(<span class="st">&#39;map&#39;</span>, {
     <span class="dt">center</span>: [<span class="fl">30.25</span>, -<span class="fl">97.75</span>], <span class="co">//Austin!</span>
@@ -89,8 +95,8 @@ James Seppi, <a href="http://www.tnris.org">TNRIS</a>
 <p>Wait, where is the map?</p>
 </div>
 </div>
-<div id="add-a-tile-layer" class="slide section level1">
-<h1>Add a Tile Layer</h1>
+<div id="add-a-base-tile-layer" class="slide section level1">
+<h1>Add a Base Tile Layer</h1>
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="fu">tileLayer</span>(
     <span class="st">&#39;http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg&#39;</span>
 ).<span class="fu">addTo</span>(map);</code></pre>
@@ -136,6 +142,7 @@ James Seppi, <a href="http://www.tnris.org">TNRIS</a>
 </div>
 <div id="add-markers" class="slide section level1">
 <h1>Add Markers</h1>
+<div class="incremental">
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="fu">marker</span>([<span class="fl">30.265108</span>, -<span class="fl">97.746683</span>])
     .<span class="fu">bindPopup</span>(<span class="st">&quot;Austin City Hall&quot;</span>)
     .<span class="fu">addTo</span>(map);
@@ -143,12 +150,16 @@ James Seppi, <a href="http://www.tnris.org">TNRIS</a>
 <span class="ot">L</span>.<span class="fu">marker</span>([<span class="fl">30.309441</span>, -<span class="fl">97.666777</span>])
     .<span class="fu">bindPopup</span>(<span class="st">&quot;University Hills Library&quot;</span>)
     .<span class="fu">addTo</span>(map);</code></pre>
+</div>
+<div class="incremental">
 <div id="map6" class="map">
 
 </div>
 </div>
+</div>
 <div id="bind-events" class="slide section level1">
 <h1>Bind Events</h1>
+<div class="incremental">
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="fu">marker</span>([<span class="fl">30.265108</span>, -<span class="fl">97.746683</span>])
     .<span class="fu">on</span>(<span class="st">&#39;click&#39;</span>, <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&quot;Austin City Hall&quot;</span>); })
     .<span class="fu">addTo</span>(map);
@@ -156,12 +167,16 @@ James Seppi, <a href="http://www.tnris.org">TNRIS</a>
 <span class="ot">L</span>.<span class="fu">marker</span>([<span class="fl">30.309441</span>, -<span class="fl">97.666777</span>])
     .<span class="fu">on</span>(<span class="st">&#39;click&#39;</span>, <span class="kw">function</span>() { <span class="fu">alert</span>(<span class="st">&quot;University Hills Library&quot;</span>); })
     .<span class="fu">addTo</span>(map);</code></pre>
+</div>
+<div class="incremental">
 <div id="map7" class="map">
 
 </div>
 </div>
+</div>
 <div id="add-vectors" class="slide section level1">
 <h1>Add Vectors</h1>
+<div class="incremental">
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="fu">polygon</span>([
     [<span class="fl">30.19</span>, -<span class="fl">97.79</span>], [<span class="fl">30.38</span>, -<span class="fl">97.79</span>],
     [<span class="fl">30.38</span>, -<span class="fl">97.68</span>], [<span class="fl">30.19</span>, -<span class="fl">97.68</span>]
@@ -169,10 +184,15 @@ James Seppi, <a href="http://www.tnris.org">TNRIS</a>
 
 <span class="ot">L</span>.<span class="fu">circle</span>([<span class="fl">30.26</span>, -<span class="fl">97.62</span>], <span class="dv">2000</span>) <span class="co">//radius in meters</span>
     .<span class="fu">bindPopup</span>(<span class="st">&quot;I&#39;m a Circle!&quot;</span>).<span class="fu">addTo</span>(map);</code></pre>
+</div>
+<div class="incremental">
 <div id="map8" class="map">
 
 </div>
+</div>
+<div class="incremental">
 <p>See also <code>L.polyline()</code> and <code>L.rectangle()</code></p>
+</div>
 </div>
 <div id="add-geojson" class="slide section level1">
 <h1>Add GeoJSON</h1>
@@ -187,6 +207,7 @@ James Seppi, <a href="http://www.tnris.org">TNRIS</a>
 <div id="map10" class="map">
 
 </div>
+<p>Created using QGIS and <a href="http://ogre.adc4gis.com/">Ogre</a></p>
 </div>
 <div id="so-many-plugins" class="slide section level1">
 <h1>So Many Plugins!</h1>
