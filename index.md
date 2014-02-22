@@ -278,7 +278,7 @@ Uses MapBox [Static Marker API](https://www.mapbox.com/developers/api/#Stand-alo
 . . .
 
 ```html
-<script src='scripts/leaflet.draw.js'></script>
+<script src='scripts/Leaflet.MakiMarkers.js'></script>
 ```
 . . .
 
