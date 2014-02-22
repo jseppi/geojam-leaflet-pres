@@ -20,8 +20,7 @@ pre code {
 }
 
 p code {
-    font-size: 21px;
-    line-height: 29px;
+    font-size: 80%;
     vertical-align: middle;
     display:inline-block;
     padding:0;

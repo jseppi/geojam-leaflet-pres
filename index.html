@@ -53,7 +53,8 @@ James Seppi, <a href="http://www.tnris.org">TNRIS</a>
 <h1>Let's Go!</h1>
 <p>First, include the Leaflet CSS and JavaScript in the <code>&lt;head&gt;</code> of your page:</p>
 <div class="incremental">
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;//cdn.leafletjs.com/leaflet-0.7.2/leaflet.css&quot;</span> <span class="kw">/&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span>
+<span class="ot">    href=</span><span class="st">&quot;//cdn.leafletjs.com/leaflet-0.7.2/leaflet.css&quot;</span> <span class="kw">/&gt;</span>
 
 <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;//cdn.leafletjs.com/leaflet-0.7.2/leaflet.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></code></pre>
 </div>
@@ -162,37 +163,56 @@ James Seppi, <a href="http://www.tnris.org">TNRIS</a>
 <div id="add-vectors" class="slide section level1">
 <h1>Add Vectors</h1>
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="fu">polygon</span>([
-    [<span class="fl">30.19</span>, -<span class="fl">97.79</span>],
-    [<span class="fl">30.38</span>, -<span class="fl">97.79</span>],
-    [<span class="fl">30.38</span>, -<span class="fl">97.68</span>],
-    [<span class="fl">30.19</span>, -<span class="fl">97.68</span>]
-]).<span class="fu">addTo</span>(map);</code></pre>
+    [<span class="fl">30.19</span>, -<span class="fl">97.79</span>], [<span class="fl">30.38</span>, -<span class="fl">97.79</span>],
+    [<span class="fl">30.38</span>, -<span class="fl">97.68</span>], [<span class="fl">30.19</span>, -<span class="fl">97.68</span>]
+]).<span class="fu">bindPopup</span>(<span class="st">&quot;I&#39;m a Polygon!&quot;</span>).<span class="fu">addTo</span>(map);
+
+<span class="ot">L</span>.<span class="fu">circle</span>([<span class="fl">30.26</span>, -<span class="fl">97.62</span>], <span class="dv">2000</span>) <span class="co">//radius in meters</span>
+    .<span class="fu">bindPopup</span>(<span class="st">&quot;I&#39;m a Circle!&quot;</span>).<span class="fu">addTo</span>(map);</code></pre>
 <div id="map8" class="map">
 
 </div>
+<p>See also <code>L.polyline()</code> and <code>L.rectangle()</code></p>
 </div>
 <div id="add-geojson" class="slide section level1">
 <h1>Add GeoJSON</h1>
 <p>TODO</p>
+<div id="map9" class="map">
+
 </div>
-<div id="map-events" class="slide section level1">
-<h1>Map Events</h1>
+</div>
+<div id="add-cooler-geojson" class="slide section level1">
+<h1>Add Cooler GeoJSON</h1>
 <p>TODO</p>
+<div id="map10" class="map">
+
+</div>
 </div>
 <div id="so-many-plugins" class="slide section level1">
 <h1>So Many Plugins!</h1>
 <p>TODO</p>
+<div id="map11" class="map">
+
+</div>
 </div>
 <div id="drawing-plugin" class="slide section level1">
 <h1>Drawing Plugin</h1>
 <p>TODO</p>
+<div id="map12" class="map">
+
+</div>
 </div>
 <div id="makimarkers-plugin" class="slide section level1">
 <h1>MakiMarkers Plugin</h1>
+<p>My personal favorite...</p>
+<p>Uses MapBox Static Marker API</p>
+<div id="map13" class="map">
+
+</div>
 <p>TODO</p>
 </div>
-<div id="resources" class="slide section level1">
-<h1>Resources</h1>
+<div id="leafletjs-resources" class="slide section level1">
+<h1>LeafletJS Resources</h1>
 <ul>
 <li><a href="http://www.leafletjs.com">leafletjs.com</a> - Tutorials, API, Plugins</li>
 <li><a href="http://geojson.io">geojson.io</a> - View, edit, and export GeoJSON</li>

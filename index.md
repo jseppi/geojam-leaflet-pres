@@ -14,7 +14,8 @@ First, include the Leaflet CSS and JavaScript in the `<head>` of your page:
 . . .
 
 ```html
-<link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+<link rel="stylesheet"
+    href="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
 
 <script src="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
 ```
@@ -142,39 +143,53 @@ L.marker([30.309441, -97.666777])
 
 ```javascript
 L.polygon([
-    [30.19, -97.79],
-    [30.38, -97.79],
-    [30.38, -97.68],
-    [30.19, -97.68]
-]).addTo(map);
+    [30.19, -97.79], [30.38, -97.79],
+    [30.38, -97.68], [30.19, -97.68]
+]).bindPopup("I'm a Polygon!").addTo(map);
+
+L.circle([30.26, -97.62], 2000) //radius in meters
+    .bindPopup("I'm a Circle!").addTo(map);
 ```
 
 <div id="map8" class="map"></div>
+
+See also `L.polyline()` and `L.rectangle()`
 
 # Add GeoJSON
 
 TODO
 
-# Map Events
+<div id="map9" class="map"></div>
+
+# Add Cooler GeoJSON
 
 TODO
+
+<div id="map10" class="map"></div>
 
 # So Many Plugins!
 
 TODO
 
+<div id="map11" class="map"></div>
+
 # Drawing Plugin
 
 TODO
 
+<div id="map12" class="map"></div>
+
 # MakiMarkers Plugin
+
+My personal favorite...
+
+Uses MapBox Static Marker API
+
+<div id="map13" class="map"></div>
 
 TODO
 
-
-
-
-# Resources
+# LeafletJS Resources
 
 - [leafletjs.com](http://www.leafletjs.com) - Tutorials, API, Plugins
 - [geojson.io](http://geojson.io) - View, edit, and export GeoJSON
