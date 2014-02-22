@@ -97,7 +97,18 @@
         [30.38, -97.68],
         [30.19, -97.68]
     ]).bindPopup("I'm a Polygon!").addTo(map8);
-    L.circle([30.26, -97.62], 2000)
+    L.circle([30.26, -97.62], 4000, {color: "red", fillColor: "#f03"})
         .bindPopup("I'm a Circle!").addTo(map8);
+
+    //---------------------------------------
+
+    var map9 = makeSimpleMap("map9");
+    L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
+        layers: 'nexrad-n0r-900913',
+        format: 'image/png',
+        transparent: true,
+        attribution: "Weather data © 2012 IEM Nexrad"
+    }).addTo(map9);
+
 
 })();

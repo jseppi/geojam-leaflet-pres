@@ -35,13 +35,17 @@ h1, h2, h3, h4, h5, h6 {
 div.slide h1 {
     font-size: 120px;
     text-align: center;
-    margin: 20px auto;
+    margin: 10px auto;
     padding: 0;
 }
 
 body {
     font-family: 'Lato', sans-serif;
 }
+
+ul { display: inline-block; }
+
+li { text-align: left; }
 
 .slide { text-align: center;}
 

@@ -51,9 +51,20 @@ code > span.er { color: #c3bf9f; }
 </div>
 <div id="what-is-this-leaflet-thing" class="slide section level1">
 <h1>What is this Leaflet thing?</h1>
+<div class="incremental">
 <ul>
-<li>Open source web mapping library</li>
+<li>Super popular <em>Open Source</em> web mapping library</li>
+<li>Very easy to use</li>
+<li>Relatively easy to understand and hack on</li>
+<li>Lightweight, mobile-friendly</li>
 </ul>
+<p><a href="http://www.leafletjs.com">www.leafletjs.com</a></p>
+</div>
+</div>
+<div id="what-is-this-leaflet-thing-1" class="slide section level1">
+<h1>What is this Leaflet thing?</h1>
+<p>Created by <a href="https://github.com/mourner">Vladimir Agafonkin</a>, <a href="http://twitter.com/mourner">@mourner</a>, now working at <a href="http://www.mapbox.com">MapBox</a></p>
+<p><img src="images/mourner.jpeg" /><br /></p>
 </div>
 <div id="lets-go" class="slide section level1">
 <h1>Let's Go!</h1>
@@ -181,8 +192,7 @@ code > span.er { color: #c3bf9f; }
     [<span class="fl">30.19</span>, -<span class="fl">97.79</span>], [<span class="fl">30.38</span>, -<span class="fl">97.79</span>],
     [<span class="fl">30.38</span>, -<span class="fl">97.68</span>], [<span class="fl">30.19</span>, -<span class="fl">97.68</span>]
 ]).<span class="fu">bindPopup</span>(<span class="st">&quot;I&#39;m a Polygon!&quot;</span>).<span class="fu">addTo</span>(map);
-
-<span class="ot">L</span>.<span class="fu">circle</span>([<span class="fl">30.26</span>, -<span class="fl">97.62</span>], <span class="dv">2000</span>) <span class="co">//radius in meters</span>
+<span class="ot">L</span>.<span class="fu">circle</span>([<span class="fl">30.26</span>, -<span class="fl">97.62</span>], <span class="dv">4000</span>, {<span class="dt">color</span>: <span class="st">&quot;red&quot;</span>, <span class="dt">fillColor</span>: <span class="st">&quot;#f03&quot;</span>})
     .<span class="fu">bindPopup</span>(<span class="st">&quot;I&#39;m a Circle!&quot;</span>).<span class="fu">addTo</span>(map);</code></pre>
 </div>
 <div class="incremental">
@@ -194,17 +204,32 @@ code > span.er { color: #c3bf9f; }
 <p>See also <code>L.polyline()</code> and <code>L.rectangle()</code></p>
 </div>
 </div>
+<div id="add-wms" class="slide section level1">
+<h1>Add WMS</h1>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">L</span>.<span class="ot">tileLayer</span>.<span class="fu">wms</span>(
+    <span class="st">&quot;http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi&quot;</span>, {
+    <span class="dt">layers</span>: <span class="st">&#39;nexrad-n0r-900913&#39;</span>,
+    <span class="dt">format</span>: <span class="st">&#39;image/png&#39;</span>,
+    <span class="dt">transparent</span>: <span class="kw">true</span>,
+    <span class="dt">attribution</span>: <span class="st">&quot;Weather data © 2012 IEM Nexrad&quot;</span>
+}).<span class="fu">addTo</span>(map);</code></pre>
+<div class="incremental">
+<div id="map9" class="map">
+
+</div>
+</div>
+</div>
 <div id="add-geojson" class="slide section level1">
 <h1>Add GeoJSON</h1>
 <p>TODO</p>
-<div id="map9" class="map">
+<div id="map10" class="map">
 
 </div>
 </div>
 <div id="add-cooler-geojson" class="slide section level1">
 <h1>Add Cooler GeoJSON</h1>
 <p>TODO</p>
-<div id="map10" class="map">
+<div id="map11" class="map">
 
 </div>
 <p>Created using QGIS and <a href="http://ogre.adc4gis.com/">Ogre</a></p>
@@ -212,14 +237,14 @@ code > span.er { color: #c3bf9f; }
 <div id="so-many-plugins" class="slide section level1">
 <h1>So Many Plugins!</h1>
 <p>TODO</p>
-<div id="map11" class="map">
+<div id="map12" class="map">
 
 </div>
 </div>
 <div id="drawing-plugin" class="slide section level1">
 <h1>Drawing Plugin</h1>
 <p>TODO</p>
-<div id="map12" class="map">
+<div id="map13" class="map">
 
 </div>
 </div>
@@ -227,7 +252,7 @@ code > span.er { color: #c3bf9f; }
 <h1>MakiMarkers Plugin</h1>
 <p>My personal favorite...</p>
 <p>Uses MapBox Static Marker API</p>
-<div id="map13" class="map">
+<div id="map14" class="map">
 
 </div>
 <p>TODO</p>

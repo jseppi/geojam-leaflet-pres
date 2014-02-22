@@ -15,7 +15,20 @@ Open Austin Geo Jam - February 22, 2014
 
 # What is this Leaflet thing?
 
-* Open source web mapping library
+. . .
+
+* Super popular *Open Source* web mapping library
+* Very easy to use
+* Relatively easy to understand and hack on
+* Lightweight, mobile-friendly
+
+[www.leafletjs.com](http://www.leafletjs.com)
+
+# What is this Leaflet thing?
+
+Created by [Vladimir Agafonkin](https://github.com/mourner), [\@mourner](http://twitter.com/mourner), now working at [MapBox](http://www.mapbox.com)
+
+![](images/mourner.jpeg)\
 
 
 # Let's Go!
@@ -168,11 +181,9 @@ L.polygon([
     [30.19, -97.79], [30.38, -97.79],
     [30.38, -97.68], [30.19, -97.68]
 ]).bindPopup("I'm a Polygon!").addTo(map);
-
-L.circle([30.26, -97.62], 2000) //radius in meters
+L.circle([30.26, -97.62], 4000, {color: "red", fillColor: "#f03"})
     .bindPopup("I'm a Circle!").addTo(map);
 ```
-
 . . .
 
 <div id="map8" class="map"></div>
@@ -181,17 +192,33 @@ L.circle([30.26, -97.62], 2000) //radius in meters
 
 See also `L.polyline()` and `L.rectangle()`
 
+# Add WMS
+
+```javascript
+L.tileLayer.wms(
+    "http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
+    layers: 'nexrad-n0r-900913',
+    format: 'image/png',
+    transparent: true,
+    attribution: "Weather data © 2012 IEM Nexrad"
+}).addTo(map);
+```
+
+. . .
+
+<div id="map9" class="map"></div>
+
 # Add GeoJSON
 
 TODO
 
-<div id="map9" class="map"></div>
+<div id="map10" class="map"></div>
 
 # Add Cooler GeoJSON
 
 TODO
 
-<div id="map10" class="map"></div>
+<div id="map11" class="map"></div>
 
 Created using QGIS and [Ogre](http://ogre.adc4gis.com/)
 
@@ -199,13 +226,13 @@ Created using QGIS and [Ogre](http://ogre.adc4gis.com/)
 
 TODO
 
-<div id="map11" class="map"></div>
+<div id="map12" class="map"></div>
 
 # Drawing Plugin
 
 TODO
 
-<div id="map12" class="map"></div>
+<div id="map13" class="map"></div>
 
 # MakiMarkers Plugin
 
@@ -213,7 +240,7 @@ My personal favorite...
 
 Uses MapBox Static Marker API
 
-<div id="map13" class="map"></div>
+<div id="map14" class="map"></div>
 
 TODO
 
