@@ -254,7 +254,7 @@ TODO
 
 # MakiMarkers Plugin
 
-My personal favorite...
+My personal favorite... [Leaflet.MakiMarkers](https://github.com/jseppi/Leaflet.MakiMarkers)
 
 Uses MapBox [Static Marker API](https://www.mapbox.com/developers/api/#Stand-alone.markers)
 
@@ -282,7 +282,7 @@ TODO
 <hr/>
 
 <small>
-Presentation source available at [github.com/jseppi/geojam-leaflet-pres](https://github.com/jseppi/geojam-leaflet-pres)
+Presentation viewable at [github.io/jseppi/geojam-leaflet-pres](http://github.io/jseppi/geojam-leaflet-pres), source available at [github.com/jseppi/geojam-leaflet-pres](https://github.com/jseppi/geojam-leaflet-pres)
 
 Generated with [pandoc](http://johnmacfarlane.net/pandoc/)
 </small>
