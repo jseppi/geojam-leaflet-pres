@@ -2,6 +2,7 @@
 /* global L */
 /* global w3c_slidy */
 /* global alert */
+/* global xhr */
 
 (function(){
     "use strict";
@@ -104,11 +105,33 @@
 
     var map9 = makeSimpleMap("map9");
     L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
-        layers: 'nexrad-n0r-900913',
-        format: 'image/png',
+        layers: "nexrad-n0r-900913",
+        format: "image/png",
         transparent: true,
         attribution: "Weather data © 2012 IEM Nexrad"
     }).addTo(map9);
 
+    //---------------------------------------
+
+    var map10 = makeSimpleMap("map10");
+    xhr("data/moontowers.geojson", function(err, resp) {
+        var data = JSON.parse(resp.response);
+
+        L.geoJson(data, {
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup(feature.properties.ADDRESS);
+            }
+        }).addTo(map10);
+    });
+
+    //---------------------------------------
+
+    var map11 = makeSimpleMap("map11");
+    xhr("data/tnris.geojson", function(err, resp) {
+        var data = JSON.parse(resp.response);
+
+        L.geoJson(data).addTo(map11);
+    });
+    
 
 })();

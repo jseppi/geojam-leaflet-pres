@@ -32,6 +32,10 @@ code > span.er { color: #c3bf9f; }
     href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
   <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+  <script src="scripts/corslite.js"></script>
+  <script src="scripts/Leaflet.MakiMarkers.js"></script>
+  <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
+  <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css' rel='stylesheet' />
   <link rel="stylesheet" href="styles/mystyle.css" />
   <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
@@ -221,48 +225,62 @@ code > span.er { color: #c3bf9f; }
 </div>
 <div id="add-geojson" class="slide section level1">
 <h1>Add GeoJSON</h1>
-<p>TODO</p>
+<div class="incremental">
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="fu">xhr</span>(<span class="st">&quot;data/moontowers.geojson&quot;</span>, <span class="kw">function</span>(err, resp) {
+    <span class="kw">var</span> data = <span class="ot">JSON</span>.<span class="fu">parse</span>(<span class="ot">resp</span>.<span class="fu">response</span>);
+
+    <span class="ot">L</span>.<span class="fu">geoJson</span>(data, {
+        <span class="dt">onEachFeature</span>: <span class="kw">function</span> (feature, layer) {
+            <span class="ot">layer</span>.<span class="fu">bindPopup</span>(<span class="ot">feature</span>.<span class="ot">properties</span>.<span class="fu">ADDRESS</span>);
+        }
+    }).<span class="fu">addTo</span>(map);
+});</code></pre>
+<p><code>xhr</code> is a method from the <a href="https://github.com/mapbox/corslite">corslite</a> library</p>
+</div>
+</div>
+<div id="add-geojson-1" class="slide section level1">
+<h1>Add GeoJSON</h1>
 <div id="map10" class="map">
 
 </div>
+<p>Moontowers from the City of Austin <a href="ftp://ftp.ci.austin.tx.us/GIS-Data/Regional/regional/historical.zip">Historical Landmarks dataset</a></p>
 </div>
 <div id="add-cooler-geojson" class="slide section level1">
 <h1>Add Cooler GeoJSON</h1>
-<p>TODO</p>
+<div class="incremental">
 <div id="map11" class="map">
 
 </div>
 <p>Created using QGIS and <a href="http://ogre.adc4gis.com/">Ogre</a></p>
 </div>
-<div id="so-many-plugins" class="slide section level1">
-<h1>So Many Plugins!</h1>
-<p>TODO</p>
-<div id="map12" class="map">
-
 </div>
+<div id="tons-of-plugins" class="slide section level1">
+<h1>Tons of Plugins!</h1>
+<p><a href="http://leafletjs.com/plugins.html">leafletjs.com/plugins.html</a></p>
+<p><a href="https://www.mapbox.com/mapbox.js/plugins/">mapbox.com/mapbox.js/plugins/</a></p>
 </div>
 <div id="drawing-plugin" class="slide section level1">
 <h1>Drawing Plugin</h1>
 <p>TODO</p>
-<div id="map13" class="map">
+<div id="map12" class="map">
 
 </div>
 </div>
 <div id="makimarkers-plugin" class="slide section level1">
 <h1>MakiMarkers Plugin</h1>
 <p>My personal favorite...</p>
-<p>Uses MapBox Static Marker API</p>
-<div id="map14" class="map">
+<p>Uses MapBox <a href="https://www.mapbox.com/developers/api/#Stand-alone.markers">Static Marker API</a></p>
+<p>TODO</p>
+<div id="map13" class="map">
 
 </div>
-<p>TODO</p>
 </div>
 <div id="leafletjs-resources" class="slide section level1">
 <h1>LeafletJS Resources</h1>
 <ul>
 <li><a href="http://www.leafletjs.com">leafletjs.com</a> - Tutorials, API, Plugins</li>
 <li><a href="http://geojson.io">geojson.io</a> - View, edit, and export GeoJSON</li>
-<li>MapBox Documentation - More LeafletJS tutorials, Plugins CDN, etc.</li>
+<li><a href="https://www.mapbox.com/mapbox.js/example/v1.0.0/plain-leaflet/">MapBox Leaflet Examples</a></li>
 </ul>
 </div>
 <div id="thanks" class="slide section level1">

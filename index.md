@@ -210,45 +210,64 @@ L.tileLayer.wms(
 
 # Add GeoJSON
 
-TODO
+. . .
+
+```javascript
+xhr("data/moontowers.geojson", function(err, resp) {
+    var data = JSON.parse(resp.response);
+
+    L.geoJson(data, {
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties.ADDRESS);
+        }
+    }).addTo(map);
+});
+```
+
+`xhr` is a method from the [corslite](https://github.com/mapbox/corslite) library
+
+# Add GeoJSON
 
 <div id="map10" class="map"></div>
 
+Moontowers from the City of Austin [Historical Landmarks dataset](ftp://ftp.ci.austin.tx.us/GIS-Data/Regional/regional/historical.zip)
+
 # Add Cooler GeoJSON
 
-TODO
+. . .
 
 <div id="map11" class="map"></div>
 
 Created using QGIS and [Ogre](http://ogre.adc4gis.com/)
 
-# So Many Plugins!
+# Tons of Plugins!
 
-TODO
+[leafletjs.com/plugins.html](http://leafletjs.com/plugins.html)
 
-<div id="map12" class="map"></div>
+[mapbox.com/mapbox.js/plugins/](https://www.mapbox.com/mapbox.js/plugins/)
 
 # Drawing Plugin
 
 TODO
 
-<div id="map13" class="map"></div>
+<div id="map12" class="map"></div>
 
 # MakiMarkers Plugin
 
 My personal favorite...
 
-Uses MapBox Static Marker API
-
-<div id="map14" class="map"></div>
+Uses MapBox [Static Marker API](https://www.mapbox.com/developers/api/#Stand-alone.markers)
 
 TODO
+
+<div id="map13" class="map"></div>
+
 
 # LeafletJS Resources
 
 - [leafletjs.com](http://www.leafletjs.com) - Tutorials, API, Plugins
 - [geojson.io](http://geojson.io) - View, edit, and export GeoJSON
-- MapBox Documentation - More LeafletJS tutorials, Plugins CDN, etc.
+- [MapBox Leaflet Examples](https://www.mapbox.com/mapbox.js/example/v1.0.0/plain-leaflet/)
 
 # Thanks!
 
