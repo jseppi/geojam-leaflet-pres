@@ -18,7 +18,7 @@
     "url": "https://github.com/jseppi/geojam-leaflet-pres.git"
   },
   "devDependencies": {
-    "gulp": "~3.5.1",
+    "gulp": "~3.5.2",
     "gulp-util": "~2.2.14",
     "gulp-pandoc": "~0.2.0"
   },
