@@ -93,8 +93,6 @@ L.tileLayer(
 
 <div id="map2" class="map"></div>
 
-. . .
-
 Yay! We have a fully interactive map!
 
 [MapQuest Open Street Map](http://developer.mapquest.com/web/products/open/map)
