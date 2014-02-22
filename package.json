@@ -1,0 +1,29 @@
+{
+  "name": "GeoJam-Leaflet-Pres",
+  "version": "0.0.0",
+  "author": {
+    "name": "TNRIS",
+    "url": "http://www.tnris.org"
+  },
+  "description": "Leaflet presentation for OpenAustin GeoJam",
+  "contributors": [
+    {
+      "name": "James Seppi",
+      "email": "james.seppi@gmail.com",
+      "url": "https://github.com/jseppi"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jseppi/geojam-leaflet-pres.git"
+  },
+  "devDependencies": {
+    "gulp": "~3.5.1",
+    "gulp-util": "~2.2.14",
+    "gulp-pandoc": "~0.2.0"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
+}
