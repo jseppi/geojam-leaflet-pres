@@ -1,6 +1,6 @@
 # geojam-leaflet-pres
 
-Presentation materials from the [Open Austin Geospatial Jam](http://www.open-austin.org/article/798) on 2/22/14
+Presentation materials from the [Open Austin Geospatial Jam](http://www.open-austin.org/article/798) on 2/22/14, part of the national [Code Across America weekend](http://www.codeforamerica.org/codeacross-2014/).
 
 http://jseppi.github.io/geojam-leaflet-pres/
 
