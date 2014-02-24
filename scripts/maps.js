@@ -127,19 +127,21 @@
     //---------------------------------------
 
     var map11 = makeSimpleMap("map11");
+    map11.setView([31.782007282245047, -99.41841466119513], 6,
+        {animate: false});
     xhr("data/tnris.geojson", function(err, resp) {
         var data = JSON.parse(resp.response);
 
         L.geoJson(data).addTo(map11);
     });
-    
+
     //---------------------------------------
 
     var map12 = makeSimpleMap("map12");
     var drawControl = new L.Control.Draw();
     map12.addControl(drawControl);
 
-    map12.on('draw:created', function (e) {
+    map12.on("draw:created", function (e) {
         var type = e.layerType,
             layer = e.layer;
 
@@ -157,7 +159,7 @@
 
     L.marker([30.31096, -97.74277], {
         icon: beerIcon
-    }).addTo(map13)
+    }).addTo(map13);
 
     //---------------------------------------
 
