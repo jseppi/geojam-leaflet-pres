@@ -17,7 +17,8 @@
     var makeSimpleMap = function(divId) {
         var newMap = L.map(divId, {
             center: [30.25, -97.75],
-            zoom: 10
+            zoom: 10,
+            zoomControl: false
         });
         L.tileLayer("http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg")
             .addTo(newMap);
@@ -26,14 +27,16 @@
 
     var map1 = L.map("map1", {
         center: [30.25, -97.75],
-        zoom: 13
+        zoom: 13,
+        zoomControl: false
     });
 
     //---------------------------------------
 
     var map2 = L.map("map2", {
         center: [30.25, -97.75],
-        zoom: 10
+        zoom: 10,
+        zoomControl: false
     });
 
     L.tileLayer("http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg")
@@ -43,7 +46,8 @@
 
     var map3 = L.map("map3", {
         center: [30.25, -97.75],
-        zoom: 10
+        zoom: 10,
+        zoomControl: false
     });
 
     L.tileLayer("http://otile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg")
@@ -53,7 +57,8 @@
 
     var map4 = L.map("map4", {
         center: [30.25, -97.75],
-        zoom: 10
+        zoom: 10,
+        zoomControl: false
     });
 
     L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
@@ -63,7 +68,8 @@
 
     var map5 = L.map("map5", {
         center: [30.25, -97.75],
-        zoom: 10
+        zoom: 10,
+        zoomControl: false
     });
 
     L.tileLayer("https://{s}.tiles.mapbox.com/v3/eleanor.mnyzxgvi/{z}/{x}/{y}.png")
