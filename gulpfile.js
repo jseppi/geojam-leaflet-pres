@@ -1,6 +1,5 @@
 
 var gulp = require('gulp'),
-    gutil = require('gulp-util'),
     pandoc = require('gulp-pandoc');
 
 
@@ -22,7 +21,7 @@ gulp.task('default',
     }
 );
 
-workingFiles = [
+var workingFiles = [
     './index.md',
     './scripts/**/*',
     './styles/**/*'
